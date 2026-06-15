@@ -1,0 +1,15 @@
+diffusers==0.35.2
+accelerate==0.34.2
+transformers==4.57.3
+safetensors
+einops
+ftfy
+decord
+imageio
+imageio-ffmpeg
+optimum-quanto
+modelscope
+
+# Open-VeOmni is required by Bernini inference. Install with --no-deps in RH
+# environments so it does not replace the container's torch/CUDA packages:
+# pip install --no-deps git+https://github.com/ByteDance-Seed/VeOmni.git@v0.1.10

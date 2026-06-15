@@ -1,0 +1,32 @@
+{
+  "1": {
+    "class_type": "RHBerniniFullTextToImage",
+    "inputs": {
+      "prompt": "A clean studio product image of a small red ceramic teapot on a white table, soft daylight, sharp details.",
+      "negative_prompt": "low quality, blurry, distorted, extra objects, text, watermark",
+      "width": 512,
+      "height": 512,
+      "steps": 4,
+      "seed": 1234,
+      "quality_preset": "smoke_test",
+      "acceleration": "wan2.2_lightx2v_4step",
+      "memory_mode": "keep_loaded_batch"
+    },
+    "_meta": {
+      "title": "RHBerniniFullTextToImage"
+    }
+  },
+  "2": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "1",
+        0
+      ],
+      "filename_prefix": "bernini/t2i"
+    },
+    "_meta": {
+      "title": "SaveImage"
+    }
+  }
+}

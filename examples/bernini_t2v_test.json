@@ -1,0 +1,36 @@
+{
+  "1": {
+    "class_type": "RHBerniniFullTextToVideo",
+    "inputs": {
+      "prompt": "A short smooth video of a red ceramic teapot rotating slowly on a white table, soft daylight, clean studio background.",
+      "negative_prompt": "low quality, blurry, distorted, text, watermark, jitter, flicker",
+      "num_frames": 9,
+      "fps": 16,
+      "width": 512,
+      "height": 512,
+      "steps": 4,
+      "seed": 3456,
+      "quality_preset": "smoke_test",
+      "acceleration": "wan2.2_lightx2v_4step",
+      "memory_mode": "keep_loaded_batch"
+    },
+    "_meta": {
+      "title": "RHBerniniFullTextToVideo"
+    }
+  },
+  "2": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ],
+      "filename_prefix": "bernini/t2v",
+      "format": "mp4",
+      "codec": "h264"
+    },
+    "_meta": {
+      "title": "SaveVideo"
+    }
+  }
+}

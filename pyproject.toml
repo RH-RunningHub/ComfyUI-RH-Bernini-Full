@@ -1,0 +1,33 @@
+[project]
+name = "comfyui-rh-bernini-full"
+version = "0.1.0"
+description = "ComfyUI-RH wrapper for full Bernini Diffusers inference"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {file = "LICENSE"}
+authors = [{name = "RunningHub"}]
+maintainers = [{name = "RunningHub"}]
+dependencies = [
+    "diffusers==0.35.2",
+    "accelerate==0.34.2",
+    "transformers==4.57.3",
+    "safetensors",
+    "einops",
+    "ftfy",
+    "decord",
+    "imageio",
+    "imageio-ffmpeg",
+    "optimum-quanto",
+    "modelscope",
+]
+
+[project.urls]
+Repository = "https://github.com/RH-RunningHub/ComfyUI-RH-Bernini-Full"
+Upstream = "https://github.com/bytedance/Bernini"
+Model = "https://modelscope.cn/models/bytedance-community/Bernini-Diffusers"
+
+[tool.comfy]
+PublisherId = "runninghub"
+DisplayName = "ComfyUI-RH-Bernini-Full"
+Icon = ""
+includes = []

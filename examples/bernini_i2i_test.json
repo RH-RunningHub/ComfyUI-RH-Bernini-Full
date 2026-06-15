@@ -1,0 +1,45 @@
+{
+  "1": {
+    "class_type": "LoadImage",
+    "inputs": {
+      "image": "bernini_i2i_source.png"
+    },
+    "_meta": {
+      "title": "LoadImage"
+    }
+  },
+  "2": {
+    "class_type": "RHBerniniFullImageToImage",
+    "inputs": {
+      "image": [
+        "1",
+        0
+      ],
+      "prompt": "Turn the source color-block image into a polished flat illustration of ceramic tiles, preserving the red, blue, green, and yellow layout.",
+      "negative_prompt": "low quality, blurry, distorted, text, watermark",
+      "width": 512,
+      "height": 512,
+      "steps": 4,
+      "seed": 2345,
+      "quality_preset": "smoke_test",
+      "acceleration": "wan2.2_lightx2v_4step",
+      "memory_mode": "keep_loaded_batch"
+    },
+    "_meta": {
+      "title": "RHBerniniFullImageToImage"
+    }
+  },
+  "3": {
+    "class_type": "SaveImage",
+    "inputs": {
+      "images": [
+        "2",
+        0
+      ],
+      "filename_prefix": "bernini/i2i"
+    },
+    "_meta": {
+      "title": "SaveImage"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "1": {
+    "class_type": "LoadVideo",
+    "inputs": {
+      "file": "bernini_source_video.mp4",
+      "keep_audio": true,
+      "trim_time": "0"
+    },
+    "_meta": {
+      "title": "LoadVideo"
+    }
+  },
+  "2": {
+    "class_type": "RHBerniniFullVideoToVideo",
+    "inputs": {
+      "video": [
+        "1",
+        0
+      ],
+      "prompt": "Convert the source video into a clean ceramic product animation with soft studio lighting while preserving the motion.",
+      "negative_prompt": "low quality, blurry, distorted, text, watermark, jitter, flicker",
+      "num_frames": 9,
+      "fps": 16,
+      "width": 0,
+      "height": 0,
+      "steps": 4,
+      "seed": 4567,
+      "quality_preset": "smoke_test",
+      "acceleration": "wan2.2_lightx2v_4step",
+      "memory_mode": "keep_loaded_batch"
+    },
+    "_meta": {
+      "title": "RHBerniniFullVideoToVideo"
+    }
+  },
+  "3": {
+    "class_type": "SaveVideo",
+    "inputs": {
+      "video": [
+        "2",
+        0
+      ],
+      "filename_prefix": "bernini/v2v",
+      "format": "mp4",
+      "codec": "h264"
+    },
+    "_meta": {
+      "title": "SaveVideo"
+    }
+  }
+}
