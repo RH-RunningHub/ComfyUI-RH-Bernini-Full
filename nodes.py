@@ -86,7 +86,7 @@ def _common_widgets(default_steps: int = 4, default_seed: int = 42, default_qual
             ACCELERATION_MODES,
             {
                 "default": "wan2.2_lightx2v_4step",
-                "tooltip": "Auto-load matching Wan2.2 LightX2V 4-step LoRAs from ComfyUI/models/loras when available.",
+                "tooltip": "Auto-load the Wan2.2 T2V LightX2V 4-step LoRA pair from ComfyUI/models/loras when available.",
             },
         ),
         "memory_mode": (
@@ -192,19 +192,6 @@ _T2V_LORA_CANDIDATES = {
         "Wan2.2-T2V-A14B-4steps-lora-250928/low_noise_model.safetensors",
     ],
 }
-_I2V_LORA_CANDIDATES = {
-    "high": [
-        "wan2.2_i2v_A14b_high_noise_lora_rank64_lightx2v_4step_1022.safetensors",
-        "wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors",
-        "Wan2.2-I2V-A14B-4steps-lora-rank64-Seko-V1/high_noise_model.safetensors",
-    ],
-    "low": [
-        "wan2.2_i2v_A14b_low_noise_lora_rank64_lightx2v_4step_1022.safetensors",
-        "wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors",
-        "Wan2.2-I2V-A14B-4steps-lora-rank64-Seko-V1/low_noise_model.safetensors",
-    ],
-}
-
 
 def _find_lora_file(candidates: list[str]) -> str:
     loras_dir = os.path.join(_models_dir(), "loras")
@@ -219,13 +206,14 @@ def _resolve_acceleration_loras(task_type: str, acceleration: str):
     if str(acceleration or "none") != "wan2.2_lightx2v_4step":
         return {"high_noise_lora_path": "", "low_noise_lora_path": ""}
 
-    uses_image_or_video_condition = task_type in {"i2i", "r2v", "v2v", "rv2v"}
-    candidates = _I2V_LORA_CANDIDATES if uses_image_or_video_condition else _T2V_LORA_CANDIDATES
+    # Keep every Bernini task on the same acceleration adapter so T2I/I2I/V2V
+    # share one cached pipeline instead of cold-loading per task family.
+    candidates = _T2V_LORA_CANDIDATES
     high_path = _find_lora_file(candidates["high"])
     low_path = _find_lora_file(candidates["low"])
     if not high_path or not low_path:
         print(
-            "[RH Bernini Full] Wan2.2 LightX2V acceleration requested, but matching high/low LoRA files "
+            "[RH Bernini Full] Wan2.2 T2V LightX2V acceleration requested, but matching high/low LoRA files "
             "were not found under ComfyUI/models/loras. Running without acceleration."
         )
         return {"high_noise_lora_path": "", "low_noise_lora_path": ""}

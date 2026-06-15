@@ -23,7 +23,7 @@ The old all-parameter node has been removed. The task-specific nodes use standar
 - `reference_image_chunk_size`: chunks Qwen-VL reference image encoding.
 - `keep_model_loaded`: keeps or releases the cached pipeline after each run.
 - `memory_mode`: compact-node preset; defaults to `keep_loaded_batch` for faster consecutive jobs, while `low_vram_unload` releases cached state after each run for low-memory machines.
-- `acceleration`: defaults to `wan2.2_lightx2v_4step`. The nodes auto-detect matching Wan2.2 LightX2V high/low-noise LoRAs under `ComfyUI/models/loras`; when they are absent, inference runs without LoRA.
+- `acceleration`: defaults to `wan2.2_lightx2v_4step`. The nodes auto-detect the Wan2.2 T2V LightX2V high/low-noise LoRA pair under `ComfyUI/models/loras`; when it is absent, inference runs without LoRA.
 
 ## Wan2.2 LightX2V LoRA Acceleration
 
@@ -40,7 +40,7 @@ ComfyUI/models/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors
 ComfyUI/models/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors
 ```
 
-Text-to-image/text-to-video use the T2V LoRA pair. Image/video-conditioned tasks use the I2V LoRA pair. The LoRA mainly speeds production sampling by enabling around `4` diffusion steps; it does not reduce the first-time Bernini qint8 model load.
+All task types use the same T2V LoRA pair so consecutive T2I/I2I/V2V jobs can share the cached Bernini pipeline. The LoRA mainly speeds production sampling by enabling around `4` diffusion steps; it does not reduce the first-time Bernini qint8 model load.
 
 ## Model Layout
 

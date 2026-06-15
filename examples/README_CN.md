@@ -22,7 +22,7 @@ cp custom_nodes/ComfyUI-RH-Bernini-Full/examples/assets/reference_tile.png input
 
 `v2v` 和 `rv2v` 示例还需要把源视频放到 `input/bernini_source_video.mp4`。
 
-示例默认使用 `memory_mode=keep_loaded_batch` 保留模型，并开启 `acceleration=wan2.2_lightx2v_4step` 自动查找 Wan2.2 LightX2V LoRA。所有示例默认使用 `4` diffusion steps；视频类示例仍保持 `9` 帧、`512x512`，用于插件连通性测试。正式视频出片时建议把 `num_frames` 调回 `81`。内存紧张时把 `memory_mode` 改为 `low_vram_unload`。
+示例默认使用 `memory_mode=keep_loaded_batch` 保留模型，并开启 `acceleration=wan2.2_lightx2v_4step` 自动查找 Wan2.2 T2V LightX2V LoRA。所有示例默认使用 `4` diffusion steps；视频类示例仍保持 `9` 帧、`512x512`，用于插件连通性测试。正式视频出片时建议把 `num_frames` 调回 `81`。内存紧张时把 `memory_mode` 改为 `low_vram_unload`。
 
 在 RunningHub 远端测试机上直接调用 `/prompt` 接口时，提交体建议包含：
 

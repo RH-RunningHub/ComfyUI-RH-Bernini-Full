@@ -23,7 +23,7 @@
 - `reference_image_chunk_size`：多参考图按块送入 Qwen-VL 编码，降低峰值显存。
 - `keep_model_loaded`：控制运行后是否保留 pipeline 缓存。
 - `memory_mode`：新节点中的预设开关；默认 `keep_loaded_batch`，适合连续批量任务；低内存机器可手动切到 `low_vram_unload`，每次运行后释放缓存。
-- `acceleration`：默认 `wan2.2_lightx2v_4step`。节点会从 `ComfyUI/models/loras` 自动寻找匹配的 Wan2.2 LightX2V 高/低噪 LoRA；找不到时回退为不加载 LoRA。
+- `acceleration`：默认 `wan2.2_lightx2v_4step`。节点会从 `ComfyUI/models/loras` 自动寻找 Wan2.2 T2V LightX2V 高/低噪 LoRA；找不到时回退为不加载 LoRA。
 
 ## Wan2.2 LightX2V 加速 LoRA
 
@@ -40,7 +40,7 @@ ComfyUI/models/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_high_noise.safetensors
 ComfyUI/models/loras/wan2.2_i2v_lightx2v_4steps_lora_v1_low_noise.safetensors
 ```
 
-文生图/文生视频使用 T2V LoRA，图像或视频条件任务使用 I2V LoRA。加速 LoRA 主要减少正式采样步数，建议把 `steps` 设为 `4` 左右；它不会缩短首次加载 Bernini qint8 模型的时间。
+所有任务类型统一使用 T2V LoRA，这样连续执行 T2I/I2I/V2V 时可以共用同一个 Bernini pipeline 缓存。加速 LoRA 主要减少正式采样步数，建议把 `steps` 设为 `4` 左右；它不会缩短首次加载 Bernini qint8 模型的时间。
 
 ## 模型路径
 
