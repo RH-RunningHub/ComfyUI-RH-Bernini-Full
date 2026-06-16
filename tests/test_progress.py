@@ -1,4 +1,5 @@
 import importlib.util
+import os
 import sys
 import types
 import unittest
@@ -6,7 +7,8 @@ from pathlib import Path
 
 
 PLUGIN_ROOT = Path(__file__).resolve().parents[1]
-SKILL_PATH = Path("/root/.codex/repos/glut-skills/glut-comfyui-transcribe-plugin/SKILL.md")
+_SKILL_PATH_ENV = os.environ.get("BERNINI_TRANSCRIBE_SKILL_PATH")
+SKILL_PATH = Path(_SKILL_PATH_ENV) if _SKILL_PATH_ENV else None
 
 
 def _load_nodes_module():
@@ -101,7 +103,7 @@ class ProgressTests(unittest.TestCase):
         self.assertEqual(values[-1], 100)
         self.assertEqual(values, sorted(values))
 
-    @unittest.skipUnless(SKILL_PATH.exists(), "transcribe plugin skill is not available in this runtime")
+    @unittest.skipUnless(SKILL_PATH and SKILL_PATH.exists(), "transcribe plugin skill is not available in this runtime")
     def test_transcribe_plugin_skill_requires_progress_for_long_comfyui_nodes(self):
         text = SKILL_PATH.read_text(encoding="utf-8")
         self.assertIn("ProgressBar", text)

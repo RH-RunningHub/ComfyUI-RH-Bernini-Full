@@ -1,5 +1,8 @@
 __pycache__/
 *.py[cod]
+.env
+.agents/
+.codex/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/

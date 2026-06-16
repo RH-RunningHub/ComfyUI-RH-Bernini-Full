@@ -5,8 +5,8 @@ description = "ComfyUI-RH wrapper for full Bernini Diffusers inference"
 readme = "README.md"
 requires-python = ">=3.11"
 license = {file = "LICENSE"}
-authors = [{name = "RunningHub"}]
-maintainers = [{name = "RunningHub"}]
+authors = [{name = "gluttony-10"}]
+maintainers = [{name = "gluttony-10"}]
 dependencies = [
     "diffusers==0.35.2",
     "accelerate==0.34.2",
@@ -27,7 +27,7 @@ Upstream = "https://github.com/bytedance/Bernini"
 Model = "https://modelscope.cn/models/bytedance-community/Bernini-Diffusers"
 
 [tool.comfy]
-PublisherId = "runninghub"
+PublisherId = "gluttony-10"
 DisplayName = "ComfyUI-RH-Bernini-Full"
 Icon = ""
 includes = []
