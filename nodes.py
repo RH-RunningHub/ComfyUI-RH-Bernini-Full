@@ -50,8 +50,26 @@ def _negative_prompt_widget():
 
 def _size_widgets(default_height: int = 512, default_width: int = 512):
     return {
-        "width": ("INT", {"default": default_width, "min": 64, "max": 2048, "step": 16}),
-        "height": ("INT", {"default": default_height, "min": 64, "max": 2048, "step": 16}),
+        "width": (
+            "INT",
+            {
+                "default": default_width,
+                "min": 64,
+                "max": 2048,
+                "step": 16,
+                "tooltip": "Output width in pixels. Larger values increase VRAM use and runtime.",
+            },
+        ),
+        "height": (
+            "INT",
+            {
+                "default": default_height,
+                "min": 64,
+                "max": 2048,
+                "step": 16,
+                "tooltip": "Output height in pixels. Larger values increase VRAM use and runtime.",
+            },
+        ),
     }
 
 
@@ -73,6 +91,7 @@ def _common_widgets(default_steps: int = 4, default_seed: int = 42, default_qual
                 "max": MAX_NUMPY_SEED,
                 "step": 1,
                 "control_after_generate": "randomize",
+                "tooltip": "Random seed. Values are clamped to NumPy's valid 0 to 2**32-1 range before inference.",
             },
         ),
         "quality_preset": (
@@ -101,8 +120,26 @@ def _common_widgets(default_steps: int = 4, default_seed: int = 42, default_qual
 
 def _video_widgets(default_frames: int = 9):
     return {
-        "num_frames": ("INT", {"default": default_frames, "min": 5, "max": 129, "step": 4}),
-        "fps": ("INT", {"default": 16, "min": 1, "max": 60, "step": 1}),
+        "num_frames": (
+            "INT",
+            {
+                "default": default_frames,
+                "min": 5,
+                "max": 129,
+                "step": 4,
+                "tooltip": "Number of output frames. Higher values increase VRAM use and runtime.",
+            },
+        ),
+        "fps": (
+            "INT",
+            {
+                "default": 16,
+                "min": 1,
+                "max": 60,
+                "step": 1,
+                "tooltip": "Frame rate written into the returned video.",
+            },
+        ),
     }
 
 

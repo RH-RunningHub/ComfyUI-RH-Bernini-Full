@@ -4,12 +4,12 @@
 
 ## 文件
 
-- `bernini_t2i_test.json`：文生图，输出到标准 `SaveImage`。
-- `bernini_i2i_test.json`：图生图，通过 `LoadImage` 读取 `bernini_i2i_source.png`，输出到标准 `SaveImage`。
-- `bernini_t2v_test.json`：文生视频，短视频 smoke test，默认 9 帧。
-- `bernini_v2v_test.json`：视频编辑，通过 `LoadVideo` 读取 `bernini_source_video.mp4`。
-- `bernini_r2v_test.json`：参考图生视频，通过 `LoadImage` 读取 `bernini_reference_tile.png`。
-- `bernini_rv2v_test.json`：参考图 + 视频编辑，通过 `LoadVideo` 读取 `bernini_source_video.mp4`，并通过 `LoadImage` 读取 `bernini_reference_tile.png`。
+- `bernini_t2i_test_api.json`：文生图，输出到标准 `SaveImage`。
+- `bernini_i2i_test_api.json`：图生图，通过 `LoadImage` 读取 `bernini_i2i_source.png`，输出到标准 `SaveImage`。
+- `bernini_t2v_test_api.json`：文生视频，短视频 smoke test，默认 9 帧。
+- `bernini_v2v_test_api.json`：视频编辑，通过 `LoadVideo` 读取 `bernini_source_video.mp4`。
+- `bernini_r2v_test_api.json`：参考图生视频，通过 `LoadImage` 读取 `bernini_reference_tile.png`。
+- `bernini_rv2v_test_api.json`：参考图 + 视频编辑，通过 `LoadVideo` 读取 `bernini_source_video.mp4`，并通过 `LoadImage` 读取 `bernini_reference_tile.png`。
 
 ## 注意
 

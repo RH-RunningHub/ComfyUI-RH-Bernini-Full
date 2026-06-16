@@ -60,14 +60,14 @@ ComfyUI/models/diffusers/Bernini-Diffusers
 
 ## 示例工作流
 
-`examples/` 下提供 ComfyUI API prompt 示例：
+`examples/` 下提供 ComfyUI API prompt 示例。发布、本地测试和 RH 验收均使用 `_api.json` 文件。
 
-- `bernini_t2i_test.json`
-- `bernini_i2i_test.json`
-- `bernini_t2v_test.json`
-- `bernini_v2v_test.json`
-- `bernini_r2v_test.json`
-- `bernini_rv2v_test.json`
+- `bernini_t2i_test_api.json`
+- `bernini_i2i_test_api.json`
+- `bernini_t2v_test_api.json`
+- `bernini_v2v_test_api.json`
+- `bernini_r2v_test_api.json`
+- `bernini_rv2v_test_api.json`
 
 图像/视频示例均使用 ComfyUI 标准加载节点。运行前把示例 PNG 和源视频放到 ComfyUI input 目录：
 

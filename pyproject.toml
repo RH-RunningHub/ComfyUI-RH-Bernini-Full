@@ -1,9 +1,9 @@
 [project]
 name = "comfyui-rh-bernini-full"
-version = "0.1.0"
+version = "260616.18.09"
 description = "ComfyUI-RH wrapper for full Bernini Diffusers inference"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 license = {file = "LICENSE"}
 authors = [{name = "gluttony-10"}]
 maintainers = [{name = "gluttony-10"}]
@@ -27,7 +27,7 @@ Upstream = "https://github.com/bytedance/Bernini"
 Model = "https://modelscope.cn/models/bytedance-community/Bernini-Diffusers"
 
 [tool.comfy]
-PublisherId = "gluttony-10"
+PublisherId = "gluttony10"
 DisplayName = "ComfyUI-RH-Bernini-Full"
 Icon = ""
 includes = []

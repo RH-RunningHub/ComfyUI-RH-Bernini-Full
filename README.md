@@ -60,14 +60,15 @@ The node validates that `config.json` has `model_type: "bernini"` and rejects pa
 
 ## Example Workflows
 
-ComfyUI API prompt examples are available in `examples/`:
+ComfyUI API prompt examples are available in `examples/`. Use the `_api.json`
+files for publication, local testing, and RH validation.
 
-- `bernini_t2i_test.json`
-- `bernini_i2i_test.json`
-- `bernini_t2v_test.json`
-- `bernini_v2v_test.json`
-- `bernini_r2v_test.json`
-- `bernini_rv2v_test.json`
+- `bernini_t2i_test_api.json`
+- `bernini_i2i_test_api.json`
+- `bernini_t2v_test_api.json`
+- `bernini_v2v_test_api.json`
+- `bernini_r2v_test_api.json`
+- `bernini_rv2v_test_api.json`
 
 The image/video examples use standard ComfyUI loaders. Place the example PNGs and your source video in the ComfyUI input directory before running:
 
