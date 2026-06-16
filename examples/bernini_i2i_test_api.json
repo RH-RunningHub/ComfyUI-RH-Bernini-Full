@@ -15,14 +15,14 @@
         "1",
         0
       ],
-      "prompt": "Turn the source color-block image into a polished flat illustration of ceramic tiles, preserving the red, blue, green, and yellow layout.",
-      "negative_prompt": "low quality, blurry, distorted, text, watermark",
+      "prompt": "Delete the bicycle parked in front of the window. Fill in the area behind it with the continuation of the window frame, wall, and ground that surround it, matching the existing perspective, lighting direction, and shadow softness so the removal is seamless. The window itself, the wall, the ground, and all other objects in the scene remain completely unchanged.",
+      "negative_prompt": "",
       "width": 512,
       "height": 512,
-      "steps": 4,
-      "seed": 2345,
-      "quality_preset": "smoke_test",
-      "acceleration": "wan2.2_lightx2v_4step",
+      "steps": 40,
+      "seed": 42,
+      "quality_preset": "standard",
+      "acceleration": "none",
       "memory_mode": "keep_loaded_batch"
     },
     "_meta": {

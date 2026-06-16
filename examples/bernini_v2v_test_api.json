@@ -2,7 +2,7 @@
   "1": {
     "class_type": "LoadVideo",
     "inputs": {
-      "file": "bernini_source_video.mp4",
+      "file": "bernini_v2v_source_case1.mp4",
       "keep_audio": true,
       "trim_time": "0"
     },
@@ -17,16 +17,16 @@
         "1",
         0
       ],
-      "prompt": "Convert the source video into a clean ceramic product animation with soft studio lighting while preserving the motion.",
-      "negative_prompt": "low quality, blurry, distorted, text, watermark, jitter, flicker",
-      "num_frames": 9,
+      "prompt": "Add a realistic snowman on the right side of the snowy path, positioned in the mid-right ground so it sits naturally beside the trail without blocking the black-and-white dog. Make it a classic three-snowball snowman, about medium height relative to the dog, with a carrot nose, small coal eyes, a few coal buttons, thin twig arms, and a dark knit hat with a muted scarf. Match the overcast winter lighting and snowy atmosphere, with soft diffuse shadows, slight snow accumulation on the hat and shoulders, and its base partially embedded in the snow. Ensure stable placement and scale across the video, with accurate perspective, consistent contact with the ground, and no flicker or drifting. Keep the dog, the snow-covered road, the snowy trees and bushes, the distant green post, and the overall winter scene unchanged.",
+      "negative_prompt": "vivid tones, overexposed, static, blurry details, subtitles, style, artwork, painting, image, motionless, overall grayish, worst quality, low quality, JPEG compression artifacts, ugly, incomplete, extra fingers, poorly drawn hands, poorly drawn face, deformed, disfigured, malformed limbs, fused fingers, still frame, cluttered background, three legs, too many people in the background, walking backwards",
+      "num_frames": 81,
       "fps": 16,
       "width": 0,
       "height": 0,
-      "steps": 4,
-      "seed": 4567,
-      "quality_preset": "smoke_test",
-      "acceleration": "wan2.2_lightx2v_4step",
+      "steps": 40,
+      "seed": 42,
+      "quality_preset": "standard",
+      "acceleration": "none",
       "memory_mode": "keep_loaded_batch"
     },
     "_meta": {

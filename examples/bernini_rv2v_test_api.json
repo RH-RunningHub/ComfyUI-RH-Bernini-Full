@@ -2,7 +2,7 @@
   "1": {
     "class_type": "LoadVideo",
     "inputs": {
-      "file": "bernini_source_video.mp4",
+      "file": "bernini_rv2v_source_case1.mp4",
       "keep_audio": true,
       "trim_time": "0"
     },
@@ -13,7 +13,7 @@
   "2": {
     "class_type": "LoadImage",
     "inputs": {
-      "image": "bernini_reference_tile.png"
+      "image": "bernini_rv2v_ref_case1.jpg"
     },
     "_meta": {
       "title": "LoadImage"
@@ -30,16 +30,16 @@
         "2",
         0
       ],
-      "prompt": "Restyle the source video with the reference tile palette and crisp ceramic texture while preserving the original motion.",
-      "negative_prompt": "low quality, blurry, distorted, text, watermark, jitter, flicker",
-      "num_frames": 9,
+      "prompt": "Replace the person's outer shirt with the shirt from the reference image while keeping the inner undershirt unchanged, preserving the original body pose, fit behavior, camera framing, lighting, background, pants, hair, skin, shadows, and overall motion exactly as they are. The person stands against the same plain light gray studio backdrop with the same subtle movement and relaxed posture, still wearing the original yellow and white horizontally striped inner T-shirt underneath, while the outer garment is now a clean white button-up shirt with thin vertical dark pinstripes, a short stand collar, black front buttons, and a left chest pocket, appearing naturally worn on the body with realistic fabric drape and motion instead of hanging flat, and all other scene elements remain unchanged.",
+      "negative_prompt": "",
+      "num_frames": 81,
       "fps": 16,
       "width": 0,
       "height": 0,
-      "steps": 4,
-      "seed": 6789,
-      "quality_preset": "smoke_test",
-      "acceleration": "wan2.2_lightx2v_4step",
+      "steps": 40,
+      "seed": 42,
+      "quality_preset": "standard",
+      "acceleration": "none",
       "memory_mode": "keep_loaded_batch"
     },
     "_meta": {

@@ -12,7 +12,7 @@ except Exception:  # pragma: no cover - allows import checks outside ComfyUI.
     folder_paths = None
 
 
-QUALITY_PRESETS = ["smoke_test", "standard", "quality"]
+QUALITY_PRESETS = ["standard", "quality"]
 MEMORY_MODES = ["keep_loaded_batch", "low_vram_unload"]
 ACCELERATION_MODES = ["wan2.2_lightx2v_4step", "none"]
 DEFAULT_MODEL_DIR = "Bernini-Diffusers-qint8"
@@ -98,7 +98,7 @@ def _common_widgets(default_steps: int = 4, default_seed: int = 42, default_qual
             QUALITY_PRESETS,
             {
                 "default": default_quality_preset,
-                "tooltip": "smoke_test is for connectivity tests; standard/quality spend more planning time for better output.",
+                "tooltip": "standard balances speed and quality; quality spends more planning time for better output.",
             },
         ),
         "acceleration": (
@@ -157,9 +157,7 @@ def _quality_settings(quality_preset: str):
     preset = str(quality_preset or "standard")
     if preset == "quality":
         return {"planning_step": 35, "vit_denoising_step": 5}
-    if preset == "standard":
-        return {"planning_step": 25, "vit_denoising_step": 5}
-    return {"planning_step": 2, "vit_denoising_step": 1}
+    return {"planning_step": 25, "vit_denoising_step": 5}
 
 
 def _normalize_seed(seed) -> int:
@@ -215,18 +213,10 @@ def _models_dir() -> str:
 
 _T2V_LORA_CANDIDATES = {
     "high": [
-        "wan2.2_t2v_A14b_high_noise_lora_rank64_lightx2v_4step_1217.safetensors",
-        "wan2.2_t2v_lightx2v_4steps_lora_v1.1_high_noise.safetensors",
         "Wan2.2-T2V-A14B-4steps-lora-rank64-Seko-V2.0/high_noise_model.safetensors",
-        "Wan2.2-T2V-A14B-4steps-lora-rank64-Seko-V1.1/high_noise_model.safetensors",
-        "Wan2.2-T2V-A14B-4steps-lora-250928/high_noise_model.safetensors",
     ],
     "low": [
-        "wan2.2_t2v_A14b_low_noise_lora_rank64_lightx2v_4step_1217.safetensors",
-        "wan2.2_t2v_lightx2v_4steps_lora_v1.1_low_noise.safetensors",
         "Wan2.2-T2V-A14B-4steps-lora-rank64-Seko-V2.0/low_noise_model.safetensors",
-        "Wan2.2-T2V-A14B-4steps-lora-rank64-Seko-V1.1/low_noise_model.safetensors",
-        "Wan2.2-T2V-A14B-4steps-lora-250928/low_noise_model.safetensors",
     ],
 }
 
@@ -635,13 +625,13 @@ class RHBerniniFullTextToImage(_RHBerniniCompactBase):
             num_inference_steps=steps,
             seed=seed,
             output_prefix="rh_bernini_t2i",
-            max_image_size=max(int(width), int(height), 512),
+            max_image_size=842,
             guidance_mode="vae_txt_vit_wapg",
             omega_txt=4.0,
             omega_img=1.0,
             omega_vid=1.0,
             omega_tgt=0.5,
-            omega_scale=0.8,
+            omega_scale=1.0,
             acceleration=acceleration,
             **settings,
         )
@@ -693,13 +683,13 @@ class RHBerniniFullImageToImage(_RHBerniniCompactBase):
             num_inference_steps=steps,
             seed=seed,
             output_prefix="rh_bernini_i2i",
-            max_image_size=max(int(width), int(height), 512),
+            max_image_size=842,
             guidance_mode="vae_txt_vit_wapg",
             omega_txt=4.0,
-            omega_img=1.2,
-            omega_vid=1.0,
+            omega_img=1.25,
+            omega_vid=1.25,
             omega_tgt=0.5,
-            omega_scale=0.8,
+            omega_scale=0.75,
             acceleration=acceleration,
             **settings,
         )
@@ -748,7 +738,7 @@ class RHBerniniFullTextToVideo(_RHBerniniCompactBase):
             num_inference_steps=steps,
             seed=seed,
             output_prefix="rh_bernini_t2v",
-            max_image_size=max(int(width), int(height), 512),
+            max_image_size=842,
             fps=fps,
             guidance_mode="vae_txt_vit_wapg",
             omega_txt=4.0,
@@ -811,7 +801,7 @@ class RHBerniniFullVideoToVideo(_RHBerniniCompactBase):
             num_inference_steps=steps,
             seed=seed,
             output_prefix="rh_bernini_v2v",
-            max_image_size=512,
+            max_image_size=848,
             fps=fps,
             guidance_mode="vae_txt_vit_wapg",
             omega_txt=4.0,
@@ -873,7 +863,7 @@ class RHBerniniFullReferenceToVideo(_RHBerniniCompactBase):
             num_inference_steps=steps,
             seed=seed,
             output_prefix="rh_bernini_r2v",
-            max_image_size=max(int(width), int(height), 512),
+            max_image_size=842,
             fps=fps,
             guidance_mode="vae_txt_vit_wapg",
             omega_txt=4.0,
@@ -936,14 +926,13 @@ class RHBerniniFullReferenceVideoToVideo(_RHBerniniCompactBase):
             source_video_path=source_video_path,
             reference_image_paths=reference_paths,
             negative_prompt=negative_prompt,
-            system_prompt="You are a helpful assistant specialized in video editing.",
             num_frames=num_frames,
             height=height,
             width=width,
             num_inference_steps=steps,
             seed=seed,
             output_prefix="rh_bernini_rv2v",
-            max_image_size=512,
+            max_image_size=848,
             fps=fps,
             guidance_mode="rv2v_wapg",
             omega_txt=4.0,

@@ -2,16 +2,16 @@
   "1": {
     "class_type": "RHBerniniFullTextToVideo",
     "inputs": {
-      "prompt": "A short smooth video of a red ceramic teapot rotating slowly on a white table, soft daylight, clean studio background.",
-      "negative_prompt": "low quality, blurry, distorted, text, watermark, jitter, flicker",
-      "num_frames": 9,
+      "prompt": "Day time, side lighting, medium shot, center composition. A large, fluffy white polar bear sits upright on a snowbank, holding a brown wooden acoustic guitar. The bear's thick furry right paw continuously strums the metal strings up and down, while its heavy body sways side to side. The bear's dark black nose twitches, and its mouth is slightly open as it moves its head. Behind the polar bear, white snowflakes gently drift downward across a vast icy landscape under a bright, deep blue sky. Sunlight casts crisp shadows on the snowy ground, illuminating the bear's thick fur and the polished surface of the guitar.",
+      "negative_prompt": "",
+      "num_frames": 81,
       "fps": 16,
-      "width": 512,
-      "height": 512,
-      "steps": 4,
-      "seed": 3456,
-      "quality_preset": "smoke_test",
-      "acceleration": "wan2.2_lightx2v_4step",
+      "width": 848,
+      "height": 480,
+      "steps": 50,
+      "seed": 42,
+      "quality_preset": "standard",
+      "acceleration": "none",
       "memory_mode": "keep_loaded_batch"
     },
     "_meta": {
