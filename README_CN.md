@@ -28,9 +28,29 @@ pip install -r requirements.txt
 pip install --no-deps git+https://github.com/ByteDance-Seed/VeOmni.git@v0.1.10
 ```
 
-## 模型
+## 模型下载与安装
 
 推荐使用已经量化好的 qint8 模型，放到 ComfyUI 的 diffusers 模型目录：
+
+### 模型目录结构
+
+模型需要放在 ComfyUI 的 `diffusers` 模型目录下：
+
+```text
+ComfyUI/
+└── models/
+    └── diffusers/
+        └── Bernini-Diffusers-qint8/
+            ├── bernini/
+            ├── mllm/
+            ├── t5_text_encoder/
+            ├── t5_tokenizer/
+            └── vae/
+```
+
+### 下载方式
+
+#### 方式 1：从 ModelScope 下载
 
 ```bash
 cd ComfyUI/models
@@ -44,6 +64,14 @@ ComfyUI/models/diffusers/Bernini-Diffusers-qint8
 ```
 
 节点会校验 `config.json` 的 `model_type` 必须为 `bernini`，并拒绝包含 `Bernini-R` / `Bernini_R` 的路径。未量化的 `bytedance-community/Bernini-Diffusers` 仅建议用于本地转换或调试；如果要直接运行，需要确保目录内容与 full Bernini-Diffusers 结构一致，并放到默认目录或建立同名软链。
+
+#### 方式 2：手动下载
+
+| 模型 | 链接 | 说明 |
+|------|------|------|
+| Bernini-Diffusers-qint8 | https://modelscope.cn/models/Gluttony10/Bernini-Diffusers-qint8 | 推荐运行用 qint8 模型包 |
+| Bernini-Diffusers | https://huggingface.co/ByteDance/Bernini-Diffusers | 上游 full 模型，可用于转换或调试 |
+| Bernini-Diffusers | https://modelscope.cn/models/bytedance-community/Bernini-Diffusers | 上游 full 模型的 ModelScope 镜像 |
 
 ## 常用参数
 
@@ -104,6 +132,8 @@ cp custom_nodes/ComfyUI-RH-Bernini-Full/examples/assets/bernini_r2v_source_img4.
 
 ## 来源/相关链接
 
+- RunningHub 中国站：https://www.runninghub.cn/?inviteCode=rh-v1367
+- RunningHub 国际站：https://www.runninghub.ai/?inviteCode=rh-v1367
 - 上游代码：https://github.com/bytedance/Bernini
 - ModelScope full 模型：https://modelscope.cn/models/bytedance-community/Bernini-Diffusers
 - qint8 模型：https://modelscope.cn/models/Gluttony10/Bernini-Diffusers-qint8
@@ -111,3 +141,11 @@ cp custom_nodes/ComfyUI-RH-Bernini-Full/examples/assets/bernini_r2v_source_img4.
 - 项目页：https://bernini-ai.github.io/
 - 论文：https://arxiv.org/abs/2605.22344
 - 代码协议：https://www.apache.org/licenses/LICENSE-2.0
+
+## 许可证
+
+本项目使用 Apache License 2.0 发布，详见 `LICENSE`。
+
+## 致谢
+
+本项目基于字节跳动的 [Bernini](https://github.com/bytedance/Bernini) 和 [Bernini-Diffusers](https://huggingface.co/ByteDance/Bernini-Diffusers)。

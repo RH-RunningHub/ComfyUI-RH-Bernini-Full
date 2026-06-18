@@ -28,9 +28,29 @@ pip install -r requirements.txt
 pip install --no-deps git+https://github.com/ByteDance-Seed/VeOmni.git@v0.1.10
 ```
 
-## Model
+## Model Download & Installation
 
 The recommended runtime model is the pre-quantized qint8 package:
+
+### Model Directory Structure
+
+Place the model under ComfyUI's `diffusers` model directory:
+
+```text
+ComfyUI/
+└── models/
+    └── diffusers/
+        └── Bernini-Diffusers-qint8/
+            ├── bernini/
+            ├── mllm/
+            ├── t5_text_encoder/
+            ├── t5_tokenizer/
+            └── vae/
+```
+
+### Download Methods
+
+#### Method 1: Download from ModelScope
 
 ```bash
 cd ComfyUI/models
@@ -44,6 +64,14 @@ ComfyUI/models/diffusers/Bernini-Diffusers-qint8
 ```
 
 The node validates that `config.json` has `model_type: "bernini"` and rejects paths containing `Bernini-R` or `Bernini_R`. The unquantized `bytedance-community/Bernini-Diffusers` package is useful for local conversion or debugging; to run it directly, keep the full Bernini-Diffusers structure and place it at the default path or create a same-name symlink.
+
+#### Method 2: Manual Download
+
+| Model | Link | Description |
+|-------|------|-------------|
+| Bernini-Diffusers-qint8 | https://modelscope.cn/models/Gluttony10/Bernini-Diffusers-qint8 | Recommended qint8 runtime package |
+| Bernini-Diffusers | https://huggingface.co/ByteDance/Bernini-Diffusers | Upstream full model for conversion or debugging |
+| Bernini-Diffusers | https://modelscope.cn/models/bytedance-community/Bernini-Diffusers | ModelScope mirror of the upstream full model |
 
 ## Common Parameters
 
@@ -104,6 +132,8 @@ See `examples/README_CN.md` for more details.
 
 ## Links
 
+- RunningHub China: https://www.runninghub.cn/?inviteCode=rh-v1367
+- RunningHub International: https://www.runninghub.ai/?inviteCode=rh-v1367
 - Upstream code: https://github.com/bytedance/Bernini
 - ModelScope full model: https://modelscope.cn/models/bytedance-community/Bernini-Diffusers
 - qint8 model: https://modelscope.cn/models/Gluttony10/Bernini-Diffusers-qint8
@@ -111,3 +141,11 @@ See `examples/README_CN.md` for more details.
 - Project page: https://bernini-ai.github.io/
 - Paper: https://arxiv.org/abs/2605.22344
 - License: https://www.apache.org/licenses/LICENSE-2.0
+
+## License
+
+This project is released under the Apache License 2.0. See `LICENSE` for details.
+
+## Acknowledgements
+
+This project is based on [Bernini](https://github.com/bytedance/Bernini) and [Bernini-Diffusers](https://huggingface.co/ByteDance/Bernini-Diffusers) from ByteDance.

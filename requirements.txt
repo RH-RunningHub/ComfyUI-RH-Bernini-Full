@@ -1,6 +1,6 @@
-diffusers==0.35.2
-accelerate==0.34.2
-transformers==4.57.3
+diffusers>=0.35.2
+accelerate>=0.34.2
+transformers>=4.57.3
 safetensors
 einops
 ftfy
