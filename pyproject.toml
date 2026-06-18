@@ -1,6 +1,6 @@
 [project]
 name = "comfyui-rh-bernini-full"
-version = "260618.11.15"
+version = "260618.11.16"
 description = "ComfyUI-RH wrapper for full Bernini Diffusers inference"
 readme = "README.md"
 requires-python = ">=3.10"
